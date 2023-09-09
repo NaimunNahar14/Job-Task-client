@@ -5,7 +5,7 @@ import TaskListRow from './TaskListRow';
 const TaskList = () => {
     const [alltasks, setAlltasks] = useState([]);
 
-    const url = `http://localhost:5000/task`;
+    const url = `https://job-task-server-self.vercel.app/task`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -14,9 +14,9 @@ const TaskList = () => {
     }, [url]);
 
     const handleDelete = id => {
-        const proceed = confirm('Are You sure want To Delete Toy');
+        const proceed = confirm('Are You sure want To Delete Task');
         if (proceed) {
-            fetch(`http://localhost:5000/task/${id}`, {
+            fetch(`https://job-task-server-self.vercel.app/task/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
